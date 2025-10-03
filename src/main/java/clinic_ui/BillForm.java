@@ -7,8 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
-
 public class BillForm extends javax.swing.JFrame {
 
     // Khai báo các biến giao diện
@@ -19,6 +17,7 @@ public class BillForm extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchBill;
     private javax.swing.JButton btnPayBill;
     private javax.swing.JButton btnDeleteBill;
+    private javax.swing.JButton btnDashboard;
 
     public BillForm(JFrame parent) {
         initComponents();
@@ -31,8 +30,6 @@ public class BillForm extends javax.swing.JFrame {
         setTitle("Quản lý hóa đơn");
         setSize(900, 500);
         setLocationRelativeTo(null);
-        
-        
 
         tblBills = new javax.swing.JTable();
         txtBillId = new javax.swing.JTextField();
@@ -41,6 +38,7 @@ public class BillForm extends javax.swing.JFrame {
         btnSearchBill = new javax.swing.JButton("Tìm kiếm");
         btnPayBill = new javax.swing.JButton("Thanh toán");
         btnDeleteBill = new javax.swing.JButton("Xóa");
+        btnDashboard = new javax.swing.JButton("Dashboard");
 
         tblBills.setModel(new DefaultTableModel(
                 new Object[][]{},
@@ -71,6 +69,9 @@ public class BillForm extends javax.swing.JFrame {
 
         btnDeleteBill.setBounds(660, 20, 100, 40);
         panel.add(btnDeleteBill);
+        
+        btnDashboard.setBounds(780, 20, 100, 40);
+        panel.add(btnDashboard);
 
         scrollPane.setBounds(20, 80, 850, 350);
         panel.add(scrollPane);
@@ -81,6 +82,14 @@ public class BillForm extends javax.swing.JFrame {
         btnSearchBill.addActionListener(e -> btnSearchBillActionPerformed(null));
         btnPayBill.addActionListener(e -> btnPayBillActionPerformed(null));
         btnDeleteBill.addActionListener(e -> btnDeleteBillActionPerformed(null));
+        
+        btnDashboard.addActionListener(e -> {
+            // --- SỬA LỖI TẠI ĐÂY ---
+            // Truyền 'this' (BillForm) vào constructor của DashboardForm
+            DashboardForm dashboard = new DashboardForm(this); 
+            dashboard.setVisible(true);
+            this.dispose(); // Đóng cửa sổ BillForm hiện tại
+        });
     }
 
     private void Get_Data() {
