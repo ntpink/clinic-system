@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import clinic_dao.AppointmentDisplay;
 import java.sql.Connection; 
+import clinic_ui.BillForm;
 public class AppointmentForm extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AppointmentForm.class.getName());
@@ -316,7 +317,8 @@ public class AppointmentForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        BillForm billForm = new BillForm(this); // mở cửa sổ quản lý hóa đơn
+        billForm.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void btnDeleteAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAppointmentActionPerformed
